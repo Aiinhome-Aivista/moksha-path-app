@@ -1,0 +1,8 @@
+name: feature
+description: Flutter Clean Architecture feature generator
+version: 0.1.0
+
+vars:
+  name:
+    type: string
+    description: Feature name
