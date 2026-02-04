@@ -14,7 +14,7 @@ class MokshaPath extends StatelessWidget {
   Widget build(BuildContext context) {
         return MaterialApp( 
           home: AppTheme(
-            tokens: lightThemeTokens, 
+            tokens: darkThemeTokens, 
             child: SubscriptionMainScreen()
             ),
             );
