@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
 
-class {{name.pascalCase()}} extends Equatable {
+class Auth extends Equatable {
   final int id;
 
-  const {{name.pascalCase()}}({
+  const Auth({
     required this.id,
   });
 

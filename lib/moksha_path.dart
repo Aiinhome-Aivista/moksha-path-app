@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moksha_path/features/subscription/presentation/screens/subscription_main_screen.dart';
+import 'package:moksha_path/features/setting/presentation/pages/setting_page.dart';
 import 'package:moksha_ui_kit/moksha_ui_kit.dart';
 
 void main() {
@@ -14,8 +14,8 @@ class MokshaPath extends StatelessWidget {
   Widget build(BuildContext context) {
         return MaterialApp( 
           home: AppTheme(
-            tokens: darkThemeTokens, 
-            child: SubscriptionMainScreen()
+            tokens: lightThemeTokens, 
+            child: SettingPage()
             ),
             );
   }

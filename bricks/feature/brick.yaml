@@ -3,6 +3,9 @@ description: Flutter Clean Architecture feature generator
 version: 0.1.0
 
 vars:
+  feature:
+    type: string
+    description: Feature name (snake_case)
   name:
     type: string
-    description: Feature name
+    description: Bloc name without suffix (snake_case)
