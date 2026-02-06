@@ -12,6 +12,9 @@ void main() {
   runApp(const MokshaPath());
 }
 
+// Replace this with your actual bearer token
+const String bearerToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzNiIsIm5hbWUiOiJTYW5jaGFyaSBLYXJtYWthciIsInVzZXJuYW1lIjoic2FuY2hhcmlrYXJtYWthcjMwMyIsInJvbGVzIjpudWxsLCJzaWQiOiI2MyIsImV4cCI6MTc3MDQ0ODkzMH0.poWumFAXrpdUc84C2UIxQGNbZv1ykDQtNv4O7Vsg2wg';
+
 class MokshaPath extends StatelessWidget {
   const MokshaPath({super.key});
 
@@ -23,7 +26,9 @@ class MokshaPath extends StatelessWidget {
         BlocProvider(
           create: (context) => SettingBloc(
             GetSetting(
-              SettingRepoImpl(SettingRemoteDataSourceImpl(DioClient())),
+              SettingRepoImpl(
+                SettingRemoteDataSourceImpl(DioClient(token: bearerToken)),
+              ),
             ),
           )..add(FetchAcademicMastersEvent()),
         ),
