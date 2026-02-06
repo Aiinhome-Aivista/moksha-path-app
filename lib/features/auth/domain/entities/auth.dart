@@ -10,3 +10,4 @@ class Auth extends Equatable {
   @override
   List<Object?> get props => [id];
 }
+

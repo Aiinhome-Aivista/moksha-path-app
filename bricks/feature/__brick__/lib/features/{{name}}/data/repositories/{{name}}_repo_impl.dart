@@ -10,7 +10,15 @@ class {{name.pascalCase()}}RepoImpl implements {{name.pascalCase()}}Repository {
 
   @override
   Future<List<{{name.pascalCase()}}>> get{{name.pascalCase()}}s() async {
-    final data = await remote.fetch{{name.pascalCase()}}s();
+
+    try {
+
+       final data = await remote.fetch{{name.pascalCase()}}s();
     return data.map((e) => {{name.pascalCase()}}Model.fromJson(e as Map<String, dynamic>)).toList();
+      
+    } catch (e) {
+      throw e.toString();
+    }
+   
   }
 }

@@ -17,3 +17,10 @@ final class AuthStarted
 
 final class AuthCompleted
     extends AuthEvent {}
+
+
+final class AcademicMastersFetched
+    extends AuthEvent {
+
+      
+    }  

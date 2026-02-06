@@ -10,7 +10,15 @@ class SettingRepoImpl implements SettingRepository {
 
   @override
   Future<List<Setting>> getSettings() async {
-    final data = await remote.fetchSettings();
+
+    try {
+
+       final data = await remote.fetchSettings();
     return data.map((e) => SettingModel.fromJson(e as Map<String, dynamic>)).toList();
+      
+    } catch (e) {
+      throw e.toString();
+    }
+   
   }
 }

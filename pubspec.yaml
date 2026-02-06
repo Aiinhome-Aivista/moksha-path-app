@@ -38,18 +38,19 @@ dependencies:
   dio: ^5.9.1
   mason: ^0.1.2
   equatable: ^2.0.8
+  get_it: ^9.2.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  # moksha_ui_kit:
-  #   path: ../moksha_ui_kit
-
   moksha_ui_kit:
-    git:
-      url: https://github.com/Aiinhome-Aivista/moksha-path-app-ui-kit.git
-      ref: main
+    path: ../moksha_ui_kit
+
+  # moksha_ui_kit:
+  #   git:
+  #     url: https://github.com/Aiinhome-Aivista/moksha-path-app-ui-kit.git
+  #     ref: main
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

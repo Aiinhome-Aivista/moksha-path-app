@@ -1,6 +1,6 @@
 import 'package:moksha_path/core/network/api_endpoints.dart';
+import 'package:moksha_path/core/network/dio_client.dart';
 import '../../data/models/setting_model.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 abstract class SettingRemoteDataSource {
@@ -10,13 +10,16 @@ abstract class SettingRemoteDataSource {
 class SettingRemoteDataSourceImpl
     implements SettingRemoteDataSource {
 
-  final Dio dio;
+  final DioClient dio;
 
   SettingRemoteDataSourceImpl(this.dio);
 
   @override
   Future<List<SettingModel>> fetchSettings() async {
-    final response = await dio.get(ApiEndPoints.login);
+
+    try {
+
+         final response = await dio.dio.get(ApiEndPoints.login);
     debugPrint("debug \${response.data['data']}");
 
     final List data = response.data['data'];
@@ -24,5 +27,12 @@ class SettingRemoteDataSourceImpl
     return data
         .map((e) => SettingModel.fromJson(e))
         .toList();
+      
+    } catch (e) {
+
+      throw e.toString();
+      
+    }
+ 
   }
 }

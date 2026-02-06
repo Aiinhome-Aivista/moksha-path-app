@@ -10,3 +10,4 @@ class GetAuth {
     return repository.getAuths();
   }
 }
+

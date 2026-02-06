@@ -9,3 +9,4 @@ class AuthModel extends Auth {
     );
   }
 }
+
