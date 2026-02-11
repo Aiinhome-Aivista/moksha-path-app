@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moksha_path/core/di/service_locator.dart';
 import 'package:moksha_path/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:moksha_path/features/auth/presentation/bloc/role_bloc.dart';
 import 'package:moksha_path/features/auth/presentation/pages/auth_page.dart';
 
 class AuthRootPage extends StatelessWidget {
@@ -9,9 +10,12 @@ class AuthRootPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_)=> AuthBloc(sl()),
-      child: AuthPage()
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => AuthBloc(sl())),
+        BlocProvider(create: (_) => RoleBloc(sl())),
+      ],
+      child: AuthPage(),
     );
   }
 }
