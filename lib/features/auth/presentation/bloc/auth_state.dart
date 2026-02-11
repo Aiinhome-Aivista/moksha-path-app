@@ -25,3 +25,19 @@ final class AcademicBoardsLoadFailure extends AuthState {
   @override
   String toString() => 'AcademicBoardsLoadFailure: $error';
 }
+
+final class RolesLoadInProgress extends AuthState {}
+final class RolesLoadSuccess extends AuthState {
+  final List<Role> roles;
+  final int? selectedRoleId;
+
+  RolesLoadSuccess(this.roles, {this.selectedRoleId});
+}
+final class RolesLoadFailure extends AuthState {
+  final String error;
+
+  RolesLoadFailure(this.error);
+
+  @override
+  String toString() => 'RolesLoadFailure: $error';
+}

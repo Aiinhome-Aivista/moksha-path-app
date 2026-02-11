@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moksha_path/core/helper/global_chip.dart';
 import 'package:moksha_path/features/auth/presentation/bloc/auth_bloc.dart';
-import 'package:moksha_path/features/auth/presentation/bloc/role_bloc.dart';
 import 'package:moksha_ui_kit/moksha_ui_kit.dart';
 
 class AuthPage extends StatefulWidget {
@@ -17,7 +16,7 @@ class _AuthPageState extends State<AuthPage> {
   void initState() {
     super.initState();
     // Fetch roles when page loads
-    context.read<RoleBloc>().add(RolesFetched());
+    context.read<AuthBloc>().add(RolesFetched());
   }
 
   @override
@@ -34,7 +33,11 @@ class _AuthPageState extends State<AuthPage> {
           children: [
             Text('Are you a', style: AppTextStyles.h1(context)),
             const SizedBox(height: 10),
-            BlocBuilder<RoleBloc, RoleState>(
+            BlocBuilder<AuthBloc, AuthState>(
+              buildWhen: (previous, current) =>
+                  current is RolesLoadInProgress ||
+                  current is RolesLoadSuccess ||
+                  current is RolesLoadFailure,
               builder: (context, state) {
                 if (state is RolesLoadInProgress) {
                   return const Center(child: CircularProgressIndicator());
@@ -48,7 +51,7 @@ class _AuthPageState extends State<AuthPage> {
                         text: role.roleName,
                         isActive: isSelected,
                         onTap: () {
-                          context.read<RoleBloc>().add(
+                          context.read<AuthBloc>().add(
                             RoleSelected(role.roleId),
                           );
                         },
@@ -71,7 +74,6 @@ class _AuthPageState extends State<AuthPage> {
             ),
             const SizedBox(height: 20),
             Row(
-              
               children: [
                 GlobalChip(
                   text: 'Cancel',
@@ -81,7 +83,9 @@ class _AuthPageState extends State<AuthPage> {
                   },
                 ),
                 const SizedBox(width: 12),
-                BlocBuilder<RoleBloc, RoleState>(
+                BlocBuilder<AuthBloc, AuthState>(
+                  buildWhen: (previous, current) =>
+                      current is RolesLoadSuccess,
                   builder: (context, state) {
                     final isEnabled =
                         state is RolesLoadSuccess &&
@@ -92,14 +96,7 @@ class _AuthPageState extends State<AuthPage> {
                       onTap: () {
                         if (isEnabled) {
                           // Handle next action with selected role
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (context) => const LoginPage(),
-                          //   ),
-                          // );
                           debugPrint('pressed next');
-                          // Add your navigation or next step logic here
                         }
                       },
                     );

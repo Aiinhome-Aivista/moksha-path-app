@@ -1,11 +1,8 @@
-part of 'role_bloc.dart';
+part of 'auth_bloc.dart';
 
-@immutable
-sealed class RoleEvent {}
+final class RolesFetched extends AuthEvent {}
 
-final class RolesFetched extends RoleEvent {}
-
-final class RoleSelected extends RoleEvent {
+final class RoleSelected extends AuthEvent {
   final int roleId;
 
   RoleSelected(this.roleId);
