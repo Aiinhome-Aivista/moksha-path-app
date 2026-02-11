@@ -17,6 +17,7 @@ class _AuthPageState extends State<AuthPage> {
     super.initState();
     // Fetch roles when page loads
     context.read<AuthBloc>().add(RolesFetched());
+    context.read<AuthBloc>().add(AcademicMastersFetched());
   }
 
   @override
@@ -84,8 +85,7 @@ class _AuthPageState extends State<AuthPage> {
                 ),
                 const SizedBox(width: 12),
                 BlocBuilder<AuthBloc, AuthState>(
-                  buildWhen: (previous, current) =>
-                      current is RolesLoadSuccess,
+                  buildWhen: (previous, current) => current is RolesLoadSuccess,
                   builder: (context, state) {
                     final isEnabled =
                         state is RolesLoadSuccess &&
@@ -106,6 +106,17 @@ class _AuthPageState extends State<AuthPage> {
             ),
           ],
         ),
+      ),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: () {
+              context.read<AuthBloc>().add(AcademicMastersFetched());
+            },
+            child: Icon(Icons.refresh),
+          ),
+        ],
       ),
     );
   }
