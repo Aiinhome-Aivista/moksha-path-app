@@ -16,7 +16,7 @@ class DioClient {
       InterceptorsWrapper(
         onRequest: (options, handler) async {
           const token =
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3MSIsIm5hbWUiOiJQYWJpdHJhIFNhcmthciIsInVzZXJuYW1lIjoic2Fya2FycGFiaXRyYTUxNyIsInJvbGVzIjpbeyJyb2xlX2lkIjoxLCJyb2xlX25hbWUiOiJzdHVkZW50In1dLCJzaWQiOiI4NCIsImV4cCI6MTc3MDQ3MjI4NH0.SVebVG6kcdFwqGzrl6DBg4YZx5nKvSIDubT5vm3H2zg";
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMDQiLCJuYW1lIjoiU3V2b2ppdCBNb25kYWwiLCJ1c2VybmFtZSI6InN1dm9qaXQubW9uZGFsIiwicm9sZXMiOlt7InJvbGVfaWQiOjEsInJvbGVfbmFtZSI6InN0dWRlbnQifV0sInNpZCI6IjIwNCIsImV4cCI6MTc3MDc5NTYzOH0.wa_lF8FUyPwmDERDtuC-n4bDR7T9M6Vgcpr-yrjbKzg";
 
           options.headers['Authorization'] = 'Bearer $token';
 
