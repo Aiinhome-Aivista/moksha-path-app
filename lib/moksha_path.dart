@@ -15,9 +15,9 @@ class MokshaPath extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-          home: AppTheme(tokens: darkThemeTokens, child: AuthRootPage()),
-        );
-    
+    return AppTheme(
+      tokens: lightThemeTokens,
+      child: MaterialApp(home: const AuthRootPage()),
+    );
   }
 }

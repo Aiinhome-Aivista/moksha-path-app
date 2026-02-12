@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moksha_path/core/helper/global_chip.dart';
 import 'package:moksha_path/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:moksha_path/features/auth/presentation/pages/login_page.dart';
 import 'package:moksha_ui_kit/moksha_ui_kit.dart';
 
 class AuthPage extends StatefulWidget {
@@ -97,6 +98,12 @@ class _AuthPageState extends State<AuthPage> {
                         if (isEnabled) {
                           // Handle next action with selected role
                           debugPrint('pressed next');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const LoginPage(),
+                            ),
+                          );
                         }
                       },
                     );
