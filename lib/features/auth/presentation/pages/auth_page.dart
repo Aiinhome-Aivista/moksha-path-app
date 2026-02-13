@@ -31,6 +31,7 @@ class _AuthPageState extends State<AuthPage> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           mainAxisSize: MainAxisSize.min,
           children: [
+            SizedBox(height: 20),
             Text('Are you a', style: AppTextStyles.h1(context)),
             const SizedBox(height: 10),
             BlocBuilder<AuthBloc, AuthState>(
@@ -116,17 +117,6 @@ class _AuthPageState extends State<AuthPage> {
           ],
         ),
       ),
-      // floatingActionButton: Column(
-      //   mainAxisAlignment: MainAxisAlignment.end,
-      //   children: [
-      //     FloatingActionButton(
-      //       onPressed: () {
-      //         context.read<AuthBloc>().add(AcademicMastersFetched());
-      //       },
-      //       child: Icon(Icons.refresh),
-      //     ),
-      //   ],
-      // ),
     );
   }
 }
