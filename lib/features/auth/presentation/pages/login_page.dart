@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:moksha_path/core/helper/global_chip.dart';
 import 'package:moksha_path/core/helper/global_textfield.dart';
 import 'package:moksha_path/features/auth/presentation/widgets/tab_toggle.dart';
-import 'package:moksha_path/features/register/presentation/pages/register_page.dart';
+import 'package:moksha_path/features/register/presentation/pages/register_root_page.dart';
 import 'package:moksha_ui_kit/moksha_ui_kit.dart';
 
 class LoginPage extends StatefulWidget {
@@ -132,7 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                     onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (_) => const RegisterPage(),
+                        builder: (_) => const RegisterRootPage(),
                       ),
                     ),
                     child: Text(
