@@ -9,8 +9,8 @@ class DioClient {
           baseUrl:
               'https://eduadaptapi-b7dkajhffjcgd8ab.canadacentral-01.azurewebsites.net/api',
           //  baseUrl: 'http://157.173.221.226:3005/api',
-          connectTimeout: Duration(seconds: 10),
-          receiveTimeout: Duration(seconds: 10),
+          connectTimeout: Duration(seconds: 30),
+          receiveTimeout: Duration(seconds: 30),
           headers: {'Content-Type': 'application/json'},
         ),
       ) {
@@ -18,7 +18,7 @@ class DioClient {
       InterceptorsWrapper(
         onRequest: (options, handler) async {
           const token =
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMzUiLCJuYW1lIjoiUHJpeWEgZGFzIiwidXNlcm5hbWUiOiJkYXNwcml5YSIsInJvbGVzIjpbeyJyb2xlX2lkIjoyLCJyb2xlX25hbWUiOiJwYXJlbnQifV0sInNpZCI6IjI2MiIsImV4cCI6MTc3MDk2OTY3NH0.dcBRB4aztAp6qrUpys37i-plyPNmcVR0xbvnzdquDMU";
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNjYiLCJuYW1lIjoiaGltYW5zaHUiLCJ1c2VybmFtZSI6ImhpbWFuc2h1Iiwicm9sZXMiOlt7InJvbGVfaWQiOjEsInJvbGVfbmFtZSI6InN0dWRlbnQifV0sInNpZCI6IjM0NCIsImV4cCI6MTc3MTA4MzY1MX0.HzqrXDuzHp8-7DyeuGuQSQ443Ug8a93JVzGJU3o4Cqk";
 
           options.headers['Authorization'] = 'Bearer $token';
 

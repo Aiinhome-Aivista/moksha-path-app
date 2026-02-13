@@ -25,11 +25,11 @@ class _AuthPageState extends State<AuthPage> {
     return Scaffold(
       backgroundColor: AppBarTheme.of(context).backgroundColor,
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(24.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          mainAxisSize: MainAxisSize.min,
+          // mainAxisAlignment: MainAxisAlignment.spaceAround,
+          // mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(height: 20),
             Text('Are you a', style: AppTextStyles.h1(context)),

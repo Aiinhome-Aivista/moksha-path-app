@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moksha_path/core/helper/global_chip.dart';
 import 'package:moksha_path/features/register/domain/entities/subject.dart';
 import 'package:moksha_path/features/register/presentation/bloc/register_bloc.dart';
+import 'package:moksha_path/features/register/presentation/pages/payment_page.dart';
 import 'package:moksha_ui_kit/moksha_ui_kit.dart';
 
 class SelectSubjectsPage extends StatefulWidget {
@@ -135,6 +136,12 @@ class _SelectSubjectsPageState extends State<SelectSubjectsPage> {
                             .map((s) => s.subjectName)
                             .toList();
                         debugPrint('Subscribe tapped: $selectedNames');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const PaymentPage(),
+                          ),
+                        );
                       },
                     ),
                   ],
