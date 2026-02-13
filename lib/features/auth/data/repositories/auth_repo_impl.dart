@@ -1,4 +1,4 @@
-import '../../domain/entities/auth.dart';
+import '../../domain/entities/login_user.dart';
 import '../../domain/repositories/auth_repository.dart';
 import '../datasources/auth_remote_data_source.dart';
 
@@ -8,10 +8,21 @@ class AuthRepoImpl implements AuthRepository {
   AuthRepoImpl(this.remote);
 
   @override
-  Future<List<Auth>> getAuths() async {
+  Future<LoginUser> register({
+    required int roleId,
+    required String username,
+    required String fullName,
+    required String email,
+    required String mobile,
+  }) async {
     try {
-      final data = await remote.fetchAuths();
-      return data;
+      return await remote.register(
+        roleId: roleId,
+        username: username,
+        fullName: fullName,
+        email: email,
+        mobile: mobile,
+      );
     } catch (e) {
       throw e.toString();
     }

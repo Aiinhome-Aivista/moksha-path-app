@@ -1,4 +1,4 @@
-import '../entities/auth.dart';
+import '../entities/login_user.dart';
 import '../repositories/auth_repository.dart';
 
 class GetAuth {
@@ -6,8 +6,19 @@ class GetAuth {
 
   GetAuth(this.repository);
 
-  Future<List<Auth>> call() {
-    return repository.getAuths();
+  Future<LoginUser> call({
+    required int roleId,
+    required String username,
+    required String fullName,
+    required String email,
+    required String mobile,
+  }) {
+    return repository.register(
+      roleId: roleId,
+      username: username,
+      fullName: fullName,
+      email: email,
+      mobile: mobile,
+    );
   }
 }
-

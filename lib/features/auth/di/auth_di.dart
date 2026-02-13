@@ -7,7 +7,6 @@ import '../data/repositories/auth_repo_impl.dart';
 import '../domain/repositories/auth_repository.dart';
 
 void registerAuth(GetIt sl) {
-
   // DATA SOURCES
   sl.registerLazySingleton<AuthRemoteDataSource>(
     () => AuthRemoteDataSourceImpl(sl()),
@@ -17,11 +16,6 @@ void registerAuth(GetIt sl) {
   );
 
   // REPOSITORIES
-
-   sl.registerLazySingleton<AuthRepository>(
-    () => AuthRepoImpl(sl()),
-  );
-  sl.registerLazySingleton<RoleRepository>(
-    () => RoleRepoImpl(sl()),
-  );
+  sl.registerLazySingleton<AuthRepository>(() => AuthRepoImpl(sl()));
+  sl.registerLazySingleton<RoleRepository>(() => RoleRepoImpl(sl()));
 }

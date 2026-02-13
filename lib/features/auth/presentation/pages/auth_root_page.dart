@@ -10,7 +10,7 @@ class AuthRootPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => AuthBloc(sl()),
+      create: (_) => AuthBloc(sl(), sl(), sl()),
       child: AuthPage(),
     );
   }

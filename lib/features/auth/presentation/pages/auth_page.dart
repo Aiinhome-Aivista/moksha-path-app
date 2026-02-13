@@ -24,7 +24,6 @@ class _AuthPageState extends State<AuthPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppBarTheme.of(context).backgroundColor,
-      appBar: AppBar(title: const Text('Auth')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -97,10 +96,14 @@ class _AuthPageState extends State<AuthPage> {
                         if (isEnabled) {
                           // Handle next action with selected role
                           debugPrint('pressed next');
+                          final bloc = context.read<AuthBloc>();
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const LoginPage(),
+                              builder: (_) => BlocProvider.value(
+                                value: bloc,
+                                child: const LoginPage(),
+                              ),
                             ),
                           );
                         }
