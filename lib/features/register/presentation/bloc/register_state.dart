@@ -135,3 +135,16 @@ final class YearsLoadFailure extends RegisterState {
   final String error;
   YearsLoadFailure(this.error);
 }
+
+// Subjects States
+final class SubjectsLoadInProgress extends RegisterState {}
+
+final class SubjectsLoadSuccess extends RegisterState {
+  final List<Subject> subjects;
+  SubjectsLoadSuccess(this.subjects);
+}
+
+final class SubjectsLoadFailure extends RegisterState {
+  final String error;
+  SubjectsLoadFailure(this.error);
+}

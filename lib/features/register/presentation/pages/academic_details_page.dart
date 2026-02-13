@@ -206,12 +206,32 @@ class _AcademicDetailsPageState extends State<AcademicDetailsPage> {
                 // Actions
                 AcademicActionButtons(
                   onSkip: () => Navigator.pop(context),
-                  onSelectSubjects: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => const SelectSubjectsPage(),
-                    ),
-                  ),
+                  onSelectSubjects: () {
+                    if (_selectedBoardId == null ||
+                        _selectedSchoolId == null ||
+                        _selectedClassId == null ||
+                        _yearCtrl.text.isEmpty) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Please fill all fields')),
+                      );
+                      return;
+                    }
+                    final bloc = context.read<RegisterBloc>();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => BlocProvider.value(
+                          value: bloc,
+                          child: SelectSubjectsPage(
+                            boardId: _selectedBoardId!,
+                            schoolId: _selectedSchoolId!,
+                            classId: _selectedClassId!,
+                            academicYear: _yearCtrl.text,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ],
             ),

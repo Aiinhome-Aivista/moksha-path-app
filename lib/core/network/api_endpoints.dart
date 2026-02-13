@@ -13,7 +13,7 @@ class ApiEndPoints{
   static const verifyOtp = '/v1/auth/verify_otp';
   //Academic details
   static const academicMaster = '/v1/academic/masters';
-
-  //
+  //fetch Subjets
+  static const subjects = '/v1/academic/get_subjects_by_boards';
 
 }

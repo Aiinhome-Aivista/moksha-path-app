@@ -6,6 +6,8 @@ import 'package:moksha_path/features/register/domain/repositories/username_sugge
 import 'package:moksha_path/features/register/domain/repositories/username_check_repository.dart';
 import 'package:moksha_path/features/register/domain/repositories/otp_repository.dart';
 import 'package:moksha_path/features/register/domain/repositories/academic_master_repository.dart';
+import 'package:moksha_path/features/register/domain/repositories/subject_repository.dart';
+import 'package:moksha_path/features/register/domain/entities/subject.dart';
 
 part 'register_event.dart';
 part 'register_state.dart';
@@ -17,18 +19,21 @@ part 'boards_event.dart';
 part 'schools_event.dart';
 part 'classes_event.dart';
 part 'years_event.dart';
+part 'subjects_event.dart';
 
 class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   final UsernameSuggestionRepository usernameSuggestionRepository;
   final UsernameCheckRepository usernameCheckRepository;
   final OtpRepository otpRepository;
   final AcademicMasterRepository academicMasterRepository;
+  final SubjectRepository subjectRepository;
 
   RegisterBloc(
     this.usernameSuggestionRepository,
     this.usernameCheckRepository,
     this.otpRepository,
     this.academicMasterRepository,
+    this.subjectRepository,
   ) : super(RegisterInitial()) {
     on<RegisterStarted>(_onStarted);
     on<UsernameSuggestionsFetched>(_onUsernameSuggestionsFetched);
@@ -39,6 +44,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     on<SchoolsFetched>(_onSchoolsFetched);
     on<ClassesFetched>(_onClassesFetched);
     on<YearsFetched>(_onYearsFetched);
+    on<SubjectsFetched>(_onSubjectsFetched);
   }
 
   Future<void> _onStarted(
@@ -187,6 +193,24 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       emit(YearsLoadSuccess(result));
     } catch (e) {
       emit(YearsLoadFailure(e.toString()));
+    }
+  }
+
+  Future<void> _onSubjectsFetched(
+    SubjectsFetched event,
+    Emitter<RegisterState> emit,
+  ) async {
+    emit(SubjectsLoadInProgress());
+    try {
+      final result = await subjectRepository.getSubjects(
+        boardId: event.boardId,
+        schoolId: event.schoolId,
+        classId: event.classId,
+        academicYear: event.academicYear,
+      );
+      emit(SubjectsLoadSuccess(result));
+    } catch (e) {
+      emit(SubjectsLoadFailure(e.toString()));
     }
   }
 }
