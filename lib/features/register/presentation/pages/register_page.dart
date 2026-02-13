@@ -192,12 +192,18 @@ class _RegisterPageState extends State<RegisterPage> {
                 const SizedBox(height: 32),
                 RegisterActionButtons(
                   onCancel: () => Navigator.pop(context),
-                  onLogin: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => const AcademicDetailsPage(),
-                    ),
-                  ),
+                  onLogin: () {
+                    final bloc = context.read<RegisterBloc>();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => BlocProvider.value(
+                          value: bloc,
+                          child: const AcademicDetailsPage(),
+                        ),
+                      ),
+                    );
+                  },
                   onSignIn: () => Navigator.pop(context),
                 ),
               ],

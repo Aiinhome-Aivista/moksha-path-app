@@ -83,3 +83,55 @@ final class VerifyOtpLoadFailure extends RegisterState {
   @override
   String toString() => 'VerifyOtpLoadFailure: $error';
 }
+
+// Boards States
+final class BoardsLoadInProgress extends RegisterState {}
+
+final class BoardsLoadSuccess extends RegisterState {
+  final List<AcademicItem> boards;
+  BoardsLoadSuccess(this.boards);
+}
+
+final class BoardsLoadFailure extends RegisterState {
+  final String error;
+  BoardsLoadFailure(this.error);
+}
+
+// Schools States
+final class SchoolsLoadInProgress extends RegisterState {}
+
+final class SchoolsLoadSuccess extends RegisterState {
+  final List<AcademicItem> schools;
+  SchoolsLoadSuccess(this.schools);
+}
+
+final class SchoolsLoadFailure extends RegisterState {
+  final String error;
+  SchoolsLoadFailure(this.error);
+}
+
+// Classes States
+final class ClassesLoadInProgress extends RegisterState {}
+
+final class ClassesLoadSuccess extends RegisterState {
+  final List<AcademicItem> classes;
+  ClassesLoadSuccess(this.classes);
+}
+
+final class ClassesLoadFailure extends RegisterState {
+  final String error;
+  ClassesLoadFailure(this.error);
+}
+
+// Years States
+final class YearsLoadInProgress extends RegisterState {}
+
+final class YearsLoadSuccess extends RegisterState {
+  final List<AcademicYear> years;
+  YearsLoadSuccess(this.years);
+}
+
+final class YearsLoadFailure extends RegisterState {
+  final String error;
+  YearsLoadFailure(this.error);
+}

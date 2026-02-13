@@ -2,12 +2,15 @@ import 'package:get_it/get_it.dart';
 import 'package:moksha_path/features/register/data/datasources/username_suggestion_remote_data_source.dart';
 import 'package:moksha_path/features/register/data/datasources/username_check_remote_data_source.dart';
 import 'package:moksha_path/features/register/data/datasources/otp_remote_data_source.dart';
+import 'package:moksha_path/features/register/data/datasources/academic_master_remote_data_source.dart';
 import 'package:moksha_path/features/register/data/repositories/username_suggestion_repo_impl.dart';
 import 'package:moksha_path/features/register/data/repositories/username_check_repo_impl.dart';
 import 'package:moksha_path/features/register/data/repositories/otp_repo_impl.dart';
+import 'package:moksha_path/features/register/data/repositories/academic_master_repo_impl.dart';
 import 'package:moksha_path/features/register/domain/repositories/username_suggestion_repository.dart';
 import 'package:moksha_path/features/register/domain/repositories/username_check_repository.dart';
 import 'package:moksha_path/features/register/domain/repositories/otp_repository.dart';
+import 'package:moksha_path/features/register/domain/repositories/academic_master_repository.dart';
 
 void registerRegister(GetIt sl) {
   // DATA SOURCES
@@ -23,6 +26,10 @@ void registerRegister(GetIt sl) {
     () => OtpRemoteDataSourceImpl(sl()),
   );
 
+  sl.registerLazySingleton<AcademicMasterRemoteDataSource>(
+    () => AcademicMasterRemoteDataSourceImpl(sl()),
+  );
+
   // REPOSITORIES
   sl.registerLazySingleton<UsernameSuggestionRepository>(
     () => UsernameSuggestionRepoImpl(sl()),
@@ -33,4 +40,8 @@ void registerRegister(GetIt sl) {
   );
 
   sl.registerLazySingleton<OtpRepository>(() => OtpRepoImpl(sl()));
+
+  sl.registerLazySingleton<AcademicMasterRepository>(
+    () => AcademicMasterRepoImpl(sl()),
+  );
 }

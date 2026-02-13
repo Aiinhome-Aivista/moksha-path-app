@@ -10,7 +10,7 @@ class RegisterRootPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => RegisterBloc(sl(), sl(), sl()),
+      create: (_) => RegisterBloc(sl(), sl(), sl(), sl()),
       child: const RegisterPage(),
     );
   }
