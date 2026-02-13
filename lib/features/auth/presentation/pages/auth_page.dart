@@ -18,7 +18,6 @@ class _AuthPageState extends State<AuthPage> {
     super.initState();
     // Fetch roles when page loads
     context.read<AuthBloc>().add(RolesFetched());
-    context.read<AuthBloc>().add(AcademicMastersFetched());
   }
 
   @override
@@ -114,17 +113,17 @@ class _AuthPageState extends State<AuthPage> {
           ],
         ),
       ),
-      floatingActionButton: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          FloatingActionButton(
-            onPressed: () {
-              context.read<AuthBloc>().add(AcademicMastersFetched());
-            },
-            child: Icon(Icons.refresh),
-          ),
-        ],
-      ),
+      // floatingActionButton: Column(
+      //   mainAxisAlignment: MainAxisAlignment.end,
+      //   children: [
+      //     FloatingActionButton(
+      //       onPressed: () {
+      //         context.read<AuthBloc>().add(AcademicMastersFetched());
+      //       },
+      //       child: Icon(Icons.refresh),
+      //     ),
+      //   ],
+      // ),
     );
   }
 }

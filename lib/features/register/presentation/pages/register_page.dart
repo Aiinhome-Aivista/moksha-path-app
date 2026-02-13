@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moksha_path/core/helper/global_chip.dart';
 import 'package:moksha_path/core/helper/global_textfield.dart';
+import 'package:moksha_path/features/register/presentation/pages/academic_details_page.dart';
 import 'package:moksha_path/features/register/presentation/widgets/terms_agreement.dart';
 import 'package:moksha_ui_kit/moksha_ui_kit.dart';
 
@@ -12,7 +13,6 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  
   final _nameController = TextEditingController();
 
   final _usernameController = TextEditingController();
@@ -105,7 +105,15 @@ class _RegisterPageState extends State<RegisterPage> {
                   GlobalChip(
                     text: 'Login',
                     isActive: true,
-                    onTap: () => debugPrint('Login tapped'),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const AcademicDetailsPage(),
+                        ),
+                      );
+                      debugPrint('Login tapped');
+                    },
                   ),
                 ],
               ),

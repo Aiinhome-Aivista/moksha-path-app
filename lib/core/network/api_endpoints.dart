@@ -8,8 +8,9 @@ class ApiEndPoints{
   //reg or login
   static const registration = '/v1/auth/register';
   //Intiate reg
+  static const usernameSuggestions = '/v1/user/username_suggestions';
+  static const usernameCheck = '/v1/user/username_check';
   static const sendOtp = '/v1/auth/send_otp';
   static const verifyOtp = '/v1/auth/verify_otp';
-  static const usernameSugeestion = '/v1/user/username_suggestions';
-  static const usernameCheck = '/v1/user/username_check';
+
 }
