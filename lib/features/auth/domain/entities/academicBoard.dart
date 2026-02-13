@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 
+// This model is just a blueprint and will be used by the model from the data layer
 class AcademicBoard extends Equatable{
   final int boardId;
   final String boardName;

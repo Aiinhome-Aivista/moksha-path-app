@@ -6,10 +6,11 @@ class AcademicBoardModel extends AcademicBoard {
     required super.boardId,
     required super.boardName,
   });
-
+  // This builds raw json data to an objet of AcademicBoard model
   factory AcademicBoardModel.fromJson(Map<String, dynamic> json) {
     return AcademicBoardModel(
       boardId: json['id'],
+      // here we've used helper to modify whenever Required
       boardName: joinTheString(json['name']),
     );
   }
