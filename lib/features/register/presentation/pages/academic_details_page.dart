@@ -33,7 +33,9 @@ class _AcademicDetailsPageState extends State<AcademicDetailsPage> {
   @override
   void initState() {
     super.initState();
+    // WidgetsBinding.instance.addPostFrameCallback((_) {
     context.read<RegisterBloc>().add(BoardsFetched());
+    // });
   }
 
   @override
