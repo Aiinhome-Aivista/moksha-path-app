@@ -32,7 +32,9 @@ class OtpRemoteDataSourceImpl implements OtpRemoteDataSource {
     try {
       final Map<String, dynamic> body = {'username': username};
       if (email != null) body['email'] = email;
-      if (phone != null) body['phone'] = phone;
+      if (phone != null) {
+        body['phone'] = phone.startsWith('+') ? phone : '+91$phone';
+      }
 
       final response = await dio.dio.post(ApiEndPoints.sendOtp, data: body);
       debugPrint("debug ${response.data}");
@@ -52,7 +54,9 @@ class OtpRemoteDataSourceImpl implements OtpRemoteDataSource {
     try {
       final Map<String, dynamic> body = {'username': username, 'otp': otp};
       if (email != null) body['email'] = email;
-      if (phone != null) body['phone'] = phone;
+      if (phone != null) {
+        body['phone'] = phone.startsWith('+') ? phone : '+91$phone';
+      }
 
       final response = await dio.dio.post(ApiEndPoints.verifyOtp, data: body);
       debugPrint("debug ${response.data}");
