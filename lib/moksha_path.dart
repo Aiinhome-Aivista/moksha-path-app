@@ -4,6 +4,7 @@ import 'package:moksha_path/core/di/service_locator.dart';
 import 'package:moksha_path/core/network/dio_client.dart';
 import 'package:moksha_path/features/auth/data/datasources/roles_remote_data_source.dart';
 import 'package:moksha_path/features/auth/presentation/pages/auth_root_page.dart';
+import 'package:moksha_path/features/dashboard/presentation/pages/dashboard_root_page.dart';
 import 'package:moksha_ui_kit/moksha_ui_kit.dart';
 
 void main() async {
@@ -24,7 +25,8 @@ class MokshaPath extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: AppTheme(tokens: lightThemeTokens, child: AuthRootPage()),
+      debugShowCheckedModeBanner: false,
+      home: AppTheme(tokens: lightThemeTokens, child: DashboardRootPage()),
     );
   }
 }

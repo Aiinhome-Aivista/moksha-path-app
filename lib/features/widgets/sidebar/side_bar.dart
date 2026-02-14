@@ -4,23 +4,18 @@ import 'package:moksha_path/features/widgets/sidebar/drawer/drawer_contents.dart
 import 'package:moksha_path/features/widgets/sidebar/drawer/drawer_header.dart';
 import 'package:moksha_ui_kit/moksha_ui_kit.dart';
 
-class SideNavBar extends StatefulWidget {
+class SideNavBar extends StatelessWidget {
   const SideNavBar({super.key});
 
-  @override
-  State<SideNavBar> createState() => _SideNavBarState();
-}
-
-class _SideNavBarState extends State<SideNavBar> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: AppTheme.of(context).background,
       child: Theme(
         data: Theme.of(context).copyWith(
-          iconTheme: IconThemeData(color: Colors.white),
+          iconTheme: IconThemeData(color: AppTheme.of(context).textPrimary),
           textTheme: Theme.of(context).textTheme.apply(
-            bodyColor: const Color.fromARGB(255, 132, 48, 48),
+            // bodyColor: const Color.fromARGB(255, 195, 28, 28),
             displayColor: AppTheme.of(context).textPrimary,
           ),
         ),
@@ -28,7 +23,7 @@ class _SideNavBarState extends State<SideNavBar> {
           children: [
             DrawerHeaderSection(),
             Expanded(child: DrawerContents()),
-            const _SignOutButton(),
+            _SignOutButton(),
           ],
         ),
       ),
@@ -36,11 +31,6 @@ class _SideNavBarState extends State<SideNavBar> {
   }
 }
 
-/// ---------------- HEADER ----------------
-
-/// ---------------- DRAWER ITEM ----------------
-
-/// ---------------- SIGN OUT BUTTON ----------------
 class _SignOutButton extends StatelessWidget {
   const _SignOutButton();
 
@@ -49,7 +39,7 @@ class _SignOutButton extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(12.0),
       decoration: BoxDecoration(
-        border: Border(top: BorderSide(color: Colors.grey.shade200, width: 1)),
+        // border: Border(top: BorderSide(color: Colors.grey.shade200, width: 1)),
       ),
       child: Material(
         color: Colors.transparent,
@@ -87,7 +77,11 @@ class _SignOutButton extends StatelessWidget {
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
             child: Row(
               children: [
-                Icon(Icons.logout, size: 22, color: Colors.grey.shade600),
+                Icon(
+                  Icons.logout,
+                  size: 22,
+                  color: AppTheme.of(context).textPrimary,
+                ),
                 const SizedBox(width: 16),
                 Expanded(
                   child: Text(
@@ -95,14 +89,14 @@ class _SignOutButton extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
-                      color: Colors.grey.shade700,
+                      color: AppTheme.of(context).textPrimary,
                     ),
                   ),
                 ),
                 Icon(
                   Icons.arrow_forward_ios,
                   size: 14,
-                  color: Colors.grey.shade400,
+                  color: AppTheme.of(context).textPrimary,
                 ),
               ],
             ),
