@@ -5,6 +5,10 @@ import 'package:moksha_path/core/network/dio_client.dart';
 import 'package:moksha_path/features/auth/data/datasources/roles_remote_data_source.dart';
 import 'package:moksha_path/features/auth/presentation/pages/auth_root_page.dart';
 import 'package:moksha_path/features/dashboard/presentation/pages/dashboard_root_page.dart';
+import 'package:moksha_path/features/learning_plan/presentation/pages/learning_plan_root_page.dart';
+import 'package:moksha_path/features/study_materials/presentation/pages/study_materials_page.dart';
+import 'package:moksha_path/features/study_materials/presentation/pages/study_materials_root_page.dart';
+import 'package:moksha_path/features/widgets/appbar/appbar.dart';
 import 'package:moksha_ui_kit/moksha_ui_kit.dart';
 
 void main() async {
@@ -26,7 +30,7 @@ class MokshaPath extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AppTheme(tokens: lightThemeTokens, child: DashboardRootPage()),
+      home: AppTheme(tokens: lightThemeTokens, child: StudyMaterialsRootPage()),
     );
   }
 }
