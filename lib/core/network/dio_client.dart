@@ -7,7 +7,7 @@ class DioClient {
     : dio = Dio(
         BaseOptions(
           baseUrl:
-              'https://eduadaptapi-b7dkajhffjcgd8ab.canadacentral-01.azurewebsites.net/api',
+              'https://eduadaptapi01-g2abebhhdeeebfbm.centralindia-01.azurewebsites.net/api',
           connectTimeout: Duration(seconds: 10),
           receiveTimeout: Duration(seconds: 10),
           headers: {'Content-Type': 'application/json'},

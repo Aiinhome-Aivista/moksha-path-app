@@ -8,6 +8,7 @@ import 'package:moksha_path/features/dashboard/presentation/pages/dashboard_root
 import 'package:moksha_path/features/learning_plan/presentation/pages/learning_plan_root_page.dart';
 import 'package:moksha_path/features/study_materials/presentation/pages/study_materials_page.dart';
 import 'package:moksha_path/features/study_materials/presentation/pages/study_materials_root_page.dart';
+import 'package:moksha_path/features/subject_tests/presentation/pages/subject_tests_root_page.dart';
 import 'package:moksha_path/features/widgets/appbar/appbar.dart';
 import 'package:moksha_ui_kit/moksha_ui_kit.dart';
 
@@ -30,7 +31,7 @@ class MokshaPath extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AppTheme(tokens: lightThemeTokens, child: StudyMaterialsRootPage()),
+      home: AppTheme(tokens: lightThemeTokens, child: LearningPlanRootPage()),
     );
   }
 }
